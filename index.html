@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; }
+        .container { max-width: 400px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .form-group button { width: 100%; padding: 10px; background-color: #28a745; border: none; color: white; border-radius: 4px; cursor: pointer; }
+        .form-group button:hover { background-color: #218838; }
+        .toggle-form { text-align: center; margin-top: 15px; }
+        @media (max-width: 400px) {
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+            <div class="toggle-form">
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </div>
+        </form>
+
+        <h2 style="display:none;" id="registerTitle">Register</h2>
+        <form id="registerForm" style="display:none;">
+            <div class="form-group">
+                <label for="registerName">Name:</label>
+                <input type="text" id="registerName" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+            <div class="toggle-form">
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        const showRegister = document.getElementById('showRegister');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const registerTitle = document.getElementById('registerTitle');
+
+        showRegister.addEventListener('click', function() {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+            registerTitle.style.display = 'block';
+        });
+
+        showLogin.addEventListener('click', function() {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+            registerTitle.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
